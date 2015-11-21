@@ -1,0 +1,27 @@
+package week7;
+
+import javax.swing.JFrame;
+
+public class VirusViewer {
+
+	public static void main(String[] args)
+	{
+		Population pop = new Population(1000, 1, 0.9999, 0.01);
+		double[] infected = new double[1000];
+		
+		for(int i = 0; i < 1000; i++)
+		{
+			pop.update();
+			infected[i] = pop.howManyInfected();
+		}
+		
+		JFrame frame = new JFrame("Virus Infection History");
+		
+		int frameSize = 300;
+		frame.setSize(frameSize, frameSize);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		VirusComponent comp = new VirusComponent(infected, frameSize);
+		frame.add(comp);
+		frame.setVisible(true);
+	}
+}

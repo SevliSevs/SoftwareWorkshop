@@ -1,0 +1,11 @@
+package week8;
+
+public class Test {
+	
+	public static void main(String[] args)
+	{
+		Easter easter = new Easter(2012);
+		System.out.println(easter.getMonth() + easter.getDay());
+	}
+
+}

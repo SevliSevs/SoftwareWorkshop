@@ -1,0 +1,64 @@
+package week7;
+
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
+import java.awt.geom.Line2D;
+
+import javax.swing.JComponent;
+
+public class VirusComponent extends JComponent {
+	
+	private double[] infected;
+	private int frameSize;
+	private Line2D.Double xAxis;
+	private Line2D.Double yAxis;
+	private double percent;
+	private double remove;
+	
+	/**
+	 * Construct component with array of infected and frame size
+	 * @param infected an array with the number of people infected at each index
+	 * @param frameSize the size of the frame
+	 */
+	public VirusComponent (double[] infected, int frameSize)
+	{
+		super();
+		this.infected = infected;
+		this.frameSize = frameSize;
+		
+		
+	}
+
+	/**
+	 * Draw the house on a graphics object
+	 * @param g the graphics object
+	*/
+	public void paintComponent(Graphics g)
+	{
+		Graphics2D g2 = (Graphics2D)g;
+		//frameSize = getWidth();
+		int length = frameSize - (int)(percent*2);
+		
+		//for(int i = 0; i < frameSize; i++)
+		for(int i = 0; i < length; i++)
+		{
+			percent = ((double)frameSize/10)*2;
+			remove = frameSize- percent;
+			//int pos = (infected.length * i)/ frameSize;
+			//double y = (infected[pos] / infected.length)*frameSize; 
+			int pos = (infected.length * i)/ length;
+			double y = (infected[pos] / infected.length)*length; 
+			Rectangle pixel = new Rectangle(i + (int)percent, (int)remove -(int)y, 1, 1);
+			xAxis = new Line2D.Double(percent, remove,remove,remove);
+			yAxis = new Line2D.Double(percent, remove, percent,percent);
+			g2.fill(pixel);	
+
+		}
+		g2.draw(xAxis);
+		g2.draw(yAxis);
+		g2.drawString("Time", (frameSize/2)-(frameSize/20), (int)(remove+ percent/(frameSize/55)));
+		g2.drawString("Infections",(int)(percent-(frameSize/20)), (int)(percent-frameSize/100));
+	}
+
+}

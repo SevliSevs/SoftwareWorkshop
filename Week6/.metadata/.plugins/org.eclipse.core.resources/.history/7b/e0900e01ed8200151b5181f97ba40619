@@ -1,0 +1,39 @@
+package week6real;
+
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+import javax.swing.JComponent;
+
+import week6.Snowman;
+
+	public class HouseComponent extends JComponent
+	{
+		private House house;
+		
+		/**
+		Create a component with a particular snowman location and size
+		@param xCoord x coordinate of snowman
+		@param y coordinate of snowman
+		@param headSize size of snowmans head
+		*/
+		public HouseComponent(int xCoord, int yCoord, int houseSize)
+		{
+			super();
+			house = new House(xCoord, yCoord, houseSize);
+		}
+		
+		/**
+		paint component on graphics object
+		@param g the graphics object
+		*/
+		public void paintComponent(Graphics g)
+		{
+			Graphics2D g2 = (Graphics2D)g;
+			
+			frosty.draw(g2);
+		}
+	}
+		
+
+}

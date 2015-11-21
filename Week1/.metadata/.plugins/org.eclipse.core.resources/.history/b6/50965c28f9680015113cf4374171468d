@@ -1,0 +1,10 @@
+
+public class test {
+	public static void main(String[] args)
+	{
+		int x = 76543;
+		int y = ("" + x).length();
+		System.out.println(y);
+	}
+
+}

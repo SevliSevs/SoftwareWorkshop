@@ -1,0 +1,45 @@
+package week8;
+
+import javax.swing.JSlider;
+
+import week8lab.CelciusView;
+import week8lab.FahrenheitView;
+import week8lab.SliderListenerLab;
+import week8lab.Temperature;
+import week8lab.TemperatureModel;
+
+public class EasterComponent {
+	
+	public EasterComponent(Easter year, int min, int max, int initial)
+	{
+		super();
+		
+		// model 
+		EasterModel model = new EasterModel(year);
+		
+		// views
+		EasterView easter = new EasterView(model);
+		
+		// make views observe model
+		model.addObserver(easter);
+		
+		// create control
+		JSlider slider = new JSlider(min, max, initial);
+		slider.setPaintTicks(true);
+		slider.setMajorTickSpacing((max - min)/4);
+		slider.setPaintLabels(true);
+		slider.setLabelTable(slider.createStandardLabels((max-min)/4));
+		
+		// create listener
+		SliderListenerLab listen = new SliderListener(model, slider);
+		
+		// make listeners listen to controls
+		slider.addChangeListener(listen);
+		
+		// place views and controls on panel
+		add(celcius);
+		add(slider);
+		add(fahrenheit);
+	}
+
+}

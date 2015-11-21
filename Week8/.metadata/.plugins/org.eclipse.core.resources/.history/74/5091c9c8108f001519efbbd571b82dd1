@@ -1,0 +1,7 @@
+package week8;
+
+import javax.swing.event.ChangeListener;
+
+public class SliderListener implements ChangeListener {
+
+}

@@ -1,0 +1,12 @@
+package week8;
+
+public class EasterModel extends Observable{
+	
+	private Easter easter;
+	
+	public EasterModel(Easter easter)
+	{
+		super();
+		this.easter = easter;
+	}
+}

@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class Question7 {
+	
+	public static void main(String[] args)
+	{
+		int x, y = 1, z;
+		Scanner in = new Scanner(System.in);
+		System.out.println("Please enter a positive number!");
+		
+		do
+		{
+			x= in.nextInt(); in.nextLine();
+			if(x <= 0)
+			{
+				System.out.print("Number not positive, try again: ");
+			}
+		}while(x <= 0);
+		
+		do
+		{
+			y++;
+			z = x%y;		
+		}while(z != 0 && y < (x/2));
+		
+		if (x != 1 && z != 0 || x == 2)
+		{
+			System.out.println("Number is prime");
+		}
+		else
+		{
+			System.out.println("Number is not prime");
+		}
+	}
+
+}

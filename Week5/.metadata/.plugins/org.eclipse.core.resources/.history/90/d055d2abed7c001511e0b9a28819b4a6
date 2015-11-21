@@ -1,0 +1,14 @@
+package week4;
+
+public class SignalMap {
+
+	private boolean[][] map;
+	private int size;
+	private double threshold;
+	private Network network;
+	
+	public SignalMap(int size, )
+	{
+		
+	}
+}

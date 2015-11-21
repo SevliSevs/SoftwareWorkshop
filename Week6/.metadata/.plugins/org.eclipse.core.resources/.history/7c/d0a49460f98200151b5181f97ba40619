@@ -1,0 +1,47 @@
+package week6real;
+
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+import javax.swing.JComponent;
+
+public class StreetComponent extends JComponent {
+
+	private House[] houses;
+	private int noOfHouses;
+	private int xCoord;
+	private int yCoord;
+	private int houseSize;
+	
+	public StreetComponent(int noOfHouses, House baseHouse)
+	{
+		super();
+		this.noOfHouses = noOfHouses;
+		this.houses = new House [noOfHouses];
+		this.xCoord = baseHouse.getHouseX();
+		this.yCoord = baseHouse.getHouseY();
+		this.houseSize = baseHouse.getHouseSize();
+		for(int i = 0; i < houses.length; i++)
+		{
+			houses[i] = new House(this.xCoord, this.yCoord, this.houseSize);
+			this.xCoord += (this.houseSize + this.houseSize/3);
+		}
+	}
+	
+	/**
+	paint component on graphics object
+	@param g the graphics object
+	*/
+	public void paintComponent(Graphics g)
+	{
+		Graphics2D g2 = (Graphics2D)g;
+		
+		for(int i = 0; i < houses.length; i++)
+		{
+			houses[i].draw(g2);
+			g2.drawString(Integer.toString(i+1),
+					((houses[i].getHouseX())+(((houses[i].getHouseSize()/2) + (houseSize/6)))), 
+					((houses[i].getHouseY())+(((houses[i].getHouseSize()/2) + (houseSize/18)))));
+		}
+	}
+}

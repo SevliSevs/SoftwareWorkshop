@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+
+public class Question8 {
+	
+	public static void main(String[] args)
+	{
+		double x, y;
+		Scanner in = new Scanner(System.in);
+		System.out.println("Please enter a positive number: ");
+		
+		do
+		{
+			x= in.nextInt(); in.nextLine();
+			if(x <= 0)
+			{
+				System.out.print("Number not positive, try again: ");
+			}
+		}while(x <= 0);
+		
+		y = Math.sqrt(x);
+		
+		if (((int)y *(int)y) == x)
+		{
+			System.out.println("The number " + (int)x + " is the square of " + (int)y);
+		}
+		else
+		{
+			System.out.println("The number " + (int)x + " is not a square");
+		}
+	}
+
+}

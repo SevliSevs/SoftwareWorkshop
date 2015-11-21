@@ -1,0 +1,11 @@
+package week3;
+
+public class MyArrayList {
+	
+	private String[] array;
+	
+	public MyArrayList(int size)
+	{
+		this.array = new String[size];
+	}
+}

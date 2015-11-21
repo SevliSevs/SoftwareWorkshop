@@ -1,0 +1,18 @@
+package week8;
+
+import java.util.Observer;
+
+import javax.swing.JLabel;
+
+public class EasterView extends JLabel implements Observer{
+	
+	private EasterModel model;
+	
+	public EasterView(EasterModel model)
+	{
+		super();
+		this.model = model;
+		
+	}
+
+}
