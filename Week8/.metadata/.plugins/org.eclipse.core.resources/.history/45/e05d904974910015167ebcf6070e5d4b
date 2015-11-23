@@ -1,0 +1,12 @@
+package week8;
+
+import java.util.Observer;
+
+public class teses {
+	
+	public static void main(String[] args)
+	{
+		  Observer obs = new Observer();
+	}
+
+}
